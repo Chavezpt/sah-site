@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-navy text-gray-300 antialiased;
+  font-feature-settings: 'ss01', 'ss02', 'cv01';
+}
+
+/* ─── Typography helpers ─── */
+.section-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+.section-label {
+  @apply text-blue-electric text-xs font-bold uppercase tracking-[0.2em];
+}
+.section-title {
+  @apply text-4xl md:text-5xl font-black leading-tight;
+}
+.section-body {
+  @apply text-gray-400 text-lg leading-relaxed;
+}
+.gradient-line {
+  @apply w-10 h-[2px] bg-gradient-to-r from-blue-electric to-blue-electric/40;
+}
+
+/* ─── Cards ─── */
+.card {
+  @apply bg-navy-card border border-navy-border rounded-xl p-6;
+}
+.card-hover {
+  @apply bg-navy-card border border-navy-border rounded-xl p-6 transition-all duration-200 hover:border-blue-electric/40;
+}
+.card-light {
+  @apply bg-white border border-gray-200 rounded-xl p-6 shadow-sm;
+}
+
+/* ─── Stat display ─── */
+.stat-number {
+  @apply text-3xl md:text-4xl font-black text-blue-electric leading-none;
+}
+.stat-label {
+  @apply text-gray-400 text-xs font-medium uppercase tracking-widest mt-2;
+}
+
+/* ─── Buttons ─── */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-7 py-3.5 bg-blue-electric text-white font-bold text-sm rounded-lg transition-all duration-200;
+}
+.btn-primary:hover {
+  @apply bg-blue-electric-light shadow-lg shadow-blue-electric/25;
+}
+.btn-outline {
+  @apply inline-flex items-center justify-center px-7 py-3.5 border border-blue-electric/40 text-blue-electric font-bold text-sm rounded-lg transition-all duration-200;
+}
+.btn-outline:hover {
+  @apply border-blue-electric bg-blue-electric/10;
+}
+
+/* ─── Comparison table cells ─── */
+.comparison-cell {
+  @apply px-6 py-4 text-sm leading-relaxed border-b border-navy-border;
+}
+
+/* ─── Glow effects ─── */
+.glow-blue {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.08), 0 0 80px rgba(59, 130, 246, 0.04);
+}
+
+/* ─── Hero gradient ─── */
+.bg-hero-gradient {
+  background: linear-gradient(180deg, #0a0f1e 0%, #0d1526 40%, #111827 100%);
+}
+
+/* ─── Stats gradient ─── */
+.stats-gradient {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0a0f1e 50%, #1a1a2e 100%);
+}
+
+/* ─── Scroll animation ─── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Level connector ─── */
+.level-connector > div + div::before {
+  content: '';
+  position: absolute;
+  left: 1.125rem;
+  top: -0.75rem;
+  width: 2px;
+  height: 0.75rem;
+  @apply bg-blue-electric/20;
+}
+
+/* ─── Pulse ring ─── */
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: pulse-ring 2s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* ─── Form inputs ─── */
+.form-input {
+  @apply w-full bg-navy border border-navy-border rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-electric focus:ring-1 focus:ring-blue-electric transition-colors;
+}
